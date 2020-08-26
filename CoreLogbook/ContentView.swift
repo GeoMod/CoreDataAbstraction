@@ -6,41 +6,60 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+	@Environment(\.managedObjectContext) private var viewContext
+	@FetchRequest(entity: Aircraft.entity(), sortDescriptors: []) var storedAircraft: FetchedResults<Aircraft>
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+	@State private var showAddSheet = false
+	@State private var aircraftMake = ""
+	@State private var hoursFlown = ""
 
-    var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
+	var body: some View {
+		NavigationView {
+			List {
+				ForEach(storedAircraft) { item in
+					VStack(alignment: .leading) {
+						Text("Aircraft: \(item.make!)")
+						Text("Hours: \(numberFormatter.string(for: item.hours)!)")
+					}
+				}
+				.onDelete(perform: deleteItems)
+			}
+			.navigationTitle("✈️ Logbook")
+			.navigationBarItems(leading: Button(action: {showAddSheet.toggle()}, label: {
+				Label("Add Aircraft", systemImage: "airplane")
+					 }), trailing: EditButton())
+			.sheet(isPresented: $showAddSheet, content: {
+				addAircraftView
+			})
+		}
 
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
+	}
 
-    private func addItem() {
+	private var addAircraftView: some View {
+		Form {
+			TextField("Aircraft make", text: $aircraftMake)
+			TextField("Hours flown", text: $hoursFlown)
+				.keyboardType(.decimalPad)
+			Button(action: {
+				let newAircraft = Aircraft(context: viewContext)
+				newAircraft.make = aircraftMake
+				// A Float because that's how it saved in CoreData
+				guard let hours = Float(hoursFlown) else { return }
+				newAircraft.hours = hours
+				saveAircraft()
+			}, label: {
+				Text("Save")
+			})
+		}
+	}
+
+    private func saveAircraft() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
             do {
                 try viewContext.save()
+				showAddSheet = false
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -52,13 +71,10 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            offsets.map { storedAircraft[$0] }.forEach(viewContext.delete)
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -66,15 +82,16 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
+private let numberFormatter: NumberFormatter = {
+	let formatter = NumberFormatter()
+	formatter.maximumFractionDigits = 1
+	return formatter
 }()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+		ContentView()
+			.preferredColorScheme(.dark)
+			.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
