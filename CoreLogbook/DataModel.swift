@@ -12,8 +12,7 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 	@Published var savedAircraft: [Aircraft] = []
 
 	// Managed Object Context
-	private let savedAircraftController: NSFetchedResultsController<Aircraft>
-
+	let savedAircraftController: NSFetchedResultsController<Aircraft>
 
 	init(managedObjectContext: NSManagedObjectContext) {
 		var request: NSFetchRequest<Aircraft> {
@@ -36,7 +35,6 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 	}
 
 
-
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 	  guard let todoItems = controller.fetchedObjects as? [Aircraft]
 		else { return }
@@ -52,26 +50,24 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 		save()
 	}
 
+	func deleteAircraft(offsets: IndexSet) {
+		let persistenceController = PersistenceController.shared
+		let viewContext = persistenceController.container.viewContext
+		withAnimation {
+			offsets.map { savedAircraft[$0] }.forEach {
+				viewContext.delete($0)
+			}
+		}
+
+		save()
+	}
+
 	private func save() {
 		do {
 			try savedAircraftController.managedObjectContext.save()
 		} catch {
 			print("Error saving to MOC")
 		}
-	}
-
-	func aircraftPerformFetch() -> NSFetchRequest<Aircraft> {
-		let fetchRequest = NSFetchRequest<Aircraft>(entityName: "Aircraft")
-		fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Aircraft.hours, ascending: true)]
-//		let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: savedAircraftController.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-//
-//		do {
-//			try controller.performFetch()
-//		} catch {
-//			fatalError("Failed fetching content items with error: \(error)")
-//		}
-
-		return fetchRequest
 	}
 
 }
