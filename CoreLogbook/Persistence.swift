@@ -17,8 +17,6 @@ struct PersistenceController {
             let newItem = Aircraft(context: viewContext)
 			newItem.make = "A320"
 			newItem.hours = Float(2300)
-
-
 //        }
         do {
             try viewContext.save()

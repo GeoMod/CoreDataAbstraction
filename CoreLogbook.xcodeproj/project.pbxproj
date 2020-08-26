@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186181E924F6867400B55BEC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186181E824F6867400B55BEC /* DataModel.swift */; };
 		18F8C66F24F564B3009BF7AF /* CoreLogbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C66E24F564B3009BF7AF /* CoreLogbookApp.swift */; };
 		18F8C67124F564B3009BF7AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C67024F564B3009BF7AF /* ContentView.swift */; };
 		18F8C67324F564B3009BF7AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F8C67224F564B3009BF7AF /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186181E824F6867400B55BEC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		18F8C66B24F564B3009BF7AF /* CoreLogbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreLogbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F8C66E24F564B3009BF7AF /* CoreLogbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLogbookApp.swift; sourceTree = "<group>"; };
 		18F8C67024F564B3009BF7AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				18F8C67024F564B3009BF7AF /* ContentView.swift */,
 				18F8C67224F564B3009BF7AF /* Assets.xcassets */,
 				18F8C67724F564B3009BF7AF /* Persistence.swift */,
+				186181E824F6867400B55BEC /* DataModel.swift */,
 				18F8C67C24F564B3009BF7AF /* Info.plist */,
 				18F8C67924F564B3009BF7AF /* CoreLogbook.xcdatamodeld */,
 				18F8C67424F564B3009BF7AF /* Preview Content */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186181E924F6867400B55BEC /* DataModel.swift in Sources */,
 				18F8C67824F564B3009BF7AF /* Persistence.swift in Sources */,
 				18F8C67124F564B3009BF7AF /* ContentView.swift in Sources */,
 				18F8C67B24F564B3009BF7AF /* CoreLogbook.xcdatamodeld in Sources */,
