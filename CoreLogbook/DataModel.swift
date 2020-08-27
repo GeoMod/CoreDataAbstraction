@@ -29,6 +29,7 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 		do {
 			try savedAircraftController.performFetch()
 			savedAircraft = savedAircraftController.fetchedObjects ?? []
+			print("this is running \(savedAircraft.count)")
 		} catch {
 			print("failed to fetch items!")
 		}
