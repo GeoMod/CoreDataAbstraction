@@ -10,6 +10,7 @@ import SwiftUI
 
 class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
 	@Published var savedAircraft: [Aircraft] = []
+	@AppStorage("FirstAircraft", store: UserDefaults(suiteName: "group.com.ImpulseCoupledDevelopment.CoreLogbook")) var firstAircraft = "first"
 
 	// Managed Object Context
 	let savedAircraftController: NSFetchedResultsController<Aircraft>
@@ -29,7 +30,6 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 		do {
 			try savedAircraftController.performFetch()
 			savedAircraft = savedAircraftController.fetchedObjects ?? []
-			print("this is running \(savedAircraft.count)")
 		} catch {
 			print("failed to fetch items!")
 		}
@@ -37,16 +37,18 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 
 
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-	  guard let todoItems = controller.fetchedObjects as? [Aircraft]
+	  guard let fetchedAircraft = controller.fetchedObjects as? [Aircraft]
 		else { return }
 
-	  savedAircraft = todoItems
+	  savedAircraft = fetchedAircraft
 	}
 
 	func addAircraft(make: String, hours: Float) {
 		let newAircraft = Aircraft(context: savedAircraftController.managedObjectContext)
 		newAircraft.make = make
 		newAircraft.hours = hours
+
+		setFirstAircraft()
 
 		save()
 	}
@@ -61,6 +63,10 @@ class DataModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate 
 		}
 
 		save()
+	}
+
+	private func setFirstAircraft() {
+		firstAircraft = savedAircraft[0].make!
 	}
 
 	private func save() {
