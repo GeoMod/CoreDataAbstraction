@@ -34,8 +34,7 @@ struct Provider: TimelineProvider {
 
         for minuteOffset in 0..<2 {
             let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset, to: currentDate)!
-			let entry = SimpleEntry(date: entryDate, make: firstAircraft
-									, hours: 3.3)
+			let entry = SimpleEntry(date: entryDate, make: firstAircraft, hours: 3.3)
             entries.append(entry)
         }
 
