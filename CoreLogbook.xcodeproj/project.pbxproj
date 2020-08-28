@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		186181E924F6867400B55BEC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186181E824F6867400B55BEC /* DataModel.swift */; };
+		18EC759D24F80444007AD3C3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EC759C24F80444007AD3C3 /* WidgetKit.framework */; };
+		18EC759F24F80444007AD3C3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EC759E24F80444007AD3C3 /* SwiftUI.framework */; };
+		18EC75A224F80444007AD3C3 /* WidgetLogbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC75A124F80444007AD3C3 /* WidgetLogbook.swift */; };
+		18EC75A424F80444007AD3C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EC75A324F80444007AD3C3 /* Assets.xcassets */; };
+		18EC75A824F80444007AD3C3 /* WidgetLogbookExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 18EC759A24F80444007AD3C3 /* WidgetLogbookExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		18EC75AD24F8055F007AD3C3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186181E824F6867400B55BEC /* DataModel.swift */; };
+		18EC75AE24F8057F007AD3C3 /* CoreLogbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C67924F564B3009BF7AF /* CoreLogbook.xcdatamodeld */; };
+		18EC75AF24F8058E007AD3C3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C67724F564B3009BF7AF /* Persistence.swift */; };
 		18F8C66F24F564B3009BF7AF /* CoreLogbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C66E24F564B3009BF7AF /* CoreLogbookApp.swift */; };
 		18F8C67124F564B3009BF7AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C67024F564B3009BF7AF /* ContentView.swift */; };
 		18F8C67324F564B3009BF7AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F8C67224F564B3009BF7AF /* Assets.xcassets */; };
@@ -16,8 +24,40 @@
 		18F8C67B24F564B3009BF7AF /* CoreLogbook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18F8C67924F564B3009BF7AF /* CoreLogbook.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		18EC75A624F80444007AD3C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18F8C66324F564B2009BF7AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18EC759924F80444007AD3C3;
+			remoteInfo = WidgetLogbookExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18EC75A924F80444007AD3C3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				18EC75A824F80444007AD3C3 /* WidgetLogbookExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		18115C0A24F91941004BAF3B /* CoreLogbook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreLogbook.entitlements; sourceTree = "<group>"; };
+		18115C0B24F9194F004BAF3B /* WidgetLogbookExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetLogbookExtension.entitlements; sourceTree = "<group>"; };
 		186181E824F6867400B55BEC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		18EC759A24F80444007AD3C3 /* WidgetLogbookExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLogbookExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EC759C24F80444007AD3C3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		18EC759E24F80444007AD3C3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		18EC75A124F80444007AD3C3 /* WidgetLogbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLogbook.swift; sourceTree = "<group>"; };
+		18EC75A324F80444007AD3C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18EC75A524F80444007AD3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F8C66B24F564B3009BF7AF /* CoreLogbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreLogbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F8C66E24F564B3009BF7AF /* CoreLogbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLogbookApp.swift; sourceTree = "<group>"; };
 		18F8C67024F564B3009BF7AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +69,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		18EC759724F80444007AD3C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18EC759F24F80444007AD3C3 /* SwiftUI.framework in Frameworks */,
+				18EC759D24F80444007AD3C3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18F8C66824F564B2009BF7AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +88,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18EC759B24F80444007AD3C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18EC759C24F80444007AD3C3 /* WidgetKit.framework */,
+				18EC759E24F80444007AD3C3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18EC75A024F80444007AD3C3 /* WidgetLogbook */ = {
+			isa = PBXGroup;
+			children = (
+				18EC75A124F80444007AD3C3 /* WidgetLogbook.swift */,
+				18EC75A324F80444007AD3C3 /* Assets.xcassets */,
+				18EC75A524F80444007AD3C3 /* Info.plist */,
+			);
+			path = WidgetLogbook;
+			sourceTree = "<group>";
+		};
 		18F8C66224F564B2009BF7AF = {
 			isa = PBXGroup;
 			children = (
+				18115C0B24F9194F004BAF3B /* WidgetLogbookExtension.entitlements */,
 				18F8C66D24F564B3009BF7AF /* CoreLogbook */,
+				18EC75A024F80444007AD3C3 /* WidgetLogbook */,
+				18EC759B24F80444007AD3C3 /* Frameworks */,
 				18F8C66C24F564B3009BF7AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				18F8C66B24F564B3009BF7AF /* CoreLogbook.app */,
+				18EC759A24F80444007AD3C3 /* WidgetLogbookExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +130,7 @@
 		18F8C66D24F564B3009BF7AF /* CoreLogbook */ = {
 			isa = PBXGroup;
 			children = (
+				18115C0A24F91941004BAF3B /* CoreLogbook.entitlements */,
 				18F8C66E24F564B3009BF7AF /* CoreLogbookApp.swift */,
 				18F8C67024F564B3009BF7AF /* ContentView.swift */,
 				18F8C67224F564B3009BF7AF /* Assets.xcassets */,
@@ -81,6 +154,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		18EC759924F80444007AD3C3 /* WidgetLogbookExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18EC75AC24F80444007AD3C3 /* Build configuration list for PBXNativeTarget "WidgetLogbookExtension" */;
+			buildPhases = (
+				18EC759624F80444007AD3C3 /* Sources */,
+				18EC759724F80444007AD3C3 /* Frameworks */,
+				18EC759824F80444007AD3C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetLogbookExtension;
+			productName = WidgetLogbookExtension;
+			productReference = 18EC759A24F80444007AD3C3 /* WidgetLogbookExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		18F8C66A24F564B2009BF7AF /* CoreLogbook */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F8C67F24F564B3009BF7AF /* Build configuration list for PBXNativeTarget "CoreLogbook" */;
@@ -88,10 +178,12 @@
 				18F8C66724F564B2009BF7AF /* Sources */,
 				18F8C66824F564B2009BF7AF /* Frameworks */,
 				18F8C66924F564B2009BF7AF /* Resources */,
+				18EC75A924F80444007AD3C3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				18EC75A724F80444007AD3C3 /* PBXTargetDependency */,
 			);
 			name = CoreLogbook;
 			productName = CoreLogbook;
@@ -107,6 +199,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					18EC759924F80444007AD3C3 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					18F8C66A24F564B2009BF7AF = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -126,11 +221,20 @@
 			projectRoot = "";
 			targets = (
 				18F8C66A24F564B2009BF7AF /* CoreLogbook */,
+				18EC759924F80444007AD3C3 /* WidgetLogbookExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		18EC759824F80444007AD3C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18EC75A424F80444007AD3C3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18F8C66924F564B2009BF7AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +247,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		18EC759624F80444007AD3C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18EC75AE24F8057F007AD3C3 /* CoreLogbook.xcdatamodeld in Sources */,
+				18EC75AF24F8058E007AD3C3 /* Persistence.swift in Sources */,
+				18EC75A224F80444007AD3C3 /* WidgetLogbook.swift in Sources */,
+				18EC75AD24F8055F007AD3C3 /* DataModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18F8C66724F564B2009BF7AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,7 +272,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		18EC75A724F80444007AD3C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18EC759924F80444007AD3C3 /* WidgetLogbookExtension */;
+			targetProxy = 18EC75A624F80444007AD3C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		18EC75AA24F80444007AD3C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetLogbookExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4Q332864D3;
+				INFOPLIST_FILE = WidgetLogbook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpulseCoupledDevelopment.CoreLogbook.WidgetLogbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18EC75AB24F80444007AD3C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetLogbookExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4Q332864D3;
+				INFOPLIST_FILE = WidgetLogbook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpulseCoupledDevelopment.CoreLogbook.WidgetLogbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		18F8C67D24F564B3009BF7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -277,8 +444,10 @@
 		18F8C68024F564B3009BF7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreLogbook/CoreLogbook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreLogbook/Preview Content\"";
 				DEVELOPMENT_TEAM = 4Q332864D3;
@@ -299,8 +468,10 @@
 		18F8C68124F564B3009BF7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreLogbook/CoreLogbook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreLogbook/Preview Content\"";
 				DEVELOPMENT_TEAM = 4Q332864D3;
@@ -321,6 +492,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		18EC75AC24F80444007AD3C3 /* Build configuration list for PBXNativeTarget "WidgetLogbookExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18EC75AA24F80444007AD3C3 /* Debug */,
+				18EC75AB24F80444007AD3C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		18F8C66624F564B2009BF7AF /* Build configuration list for PBXProject "CoreLogbook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
